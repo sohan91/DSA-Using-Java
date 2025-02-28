@@ -1,44 +1,48 @@
 import java.util.Arrays;
 
-public class QuickSortAscendingOrder {
+class QuickSortAscendingOrder{
     public static void main(String[] args) {
-        int[] arr = {3, 99, 2, 4, 22, 4};
+        int[] arr = {5,4,3,2,1};
         quickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
 
-    public static void quickSort(int[] arr, int low, int high) {
-        if (low < high) {
-            int pivotIndex = findPivotNumber(arr, low, high);
-            quickSort(arr, low, pivotIndex - 1);
-            quickSort(arr, pivotIndex + 1, high);
+    public static void quickSort(int[] arr, int start, int end) {
+        if (start < end) {
+            int p = findPivotIndex(arr, start, end);
+            quickSort(arr, start, p - 1);
+            quickSort(arr, p + 1, end);
         }
     }
 
-    public static int findPivotNumber(int[] arr, int low, int high) {
-        int pivot = arr[low];
-        int firstIndex = low + 1;
-        int lastIndex = high;
+    public static int findPivotIndex(int[] arr, int low, int high) {
+        int mid = low+(high-low)/2;
+        int pivot = arr[low];  // Choose the first element as pivot
+        int i = low + 1;       // Start `i` from `low + 1`
+        int j = high;         // Start `j` from `high`
 
-        while (firstIndex <= lastIndex) {
-            while (firstIndex <= lastIndex && arr[firstIndex] <= pivot) {
-                firstIndex++;
+        while (i <= j) {
+            // Move `i` to the right until an element greater than the pivot is found
+            while (i <= j && arr[i] <= pivot) {
+                i++;
             }
-            while (firstIndex <= lastIndex && arr[lastIndex] >= pivot) {
-                lastIndex--;
+            // Move `j` to the left until an element less than the pivot is found
+            while (i <= j && arr[j] >= pivot) {
+                j--;
             }
-
-            if (firstIndex < lastIndex) {
-                swap(arr, firstIndex, lastIndex);
+            // Swap elements if `i` and `j` have not crossed
+            if (i < j) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
             }
         }
-        swap(arr, low, lastIndex);
-        return lastIndex;
-    }
+        // Swap the pivot with `arr[j]` to place it in the correct position
+        int temp = arr[low];
+        arr[low] = arr[j];
+        arr[j] = temp;
 
-    public static void swap(int[] nums, int left, int right) {
-        int temp = nums[left];
-        nums[left] = nums[right];
-        nums[right] = temp;
+        // Return the pivot index
+        return j;
     }
 }

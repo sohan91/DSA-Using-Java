@@ -1,6 +1,6 @@
 public class SumOfSDigit {
     public static void main(String[] args) {
-        int num = 390;
+        int num = 3944;
         System.out.println("Sum of digit is : "+sumOfDigit(num));
     }
     private static int sumOfDigit(int num)

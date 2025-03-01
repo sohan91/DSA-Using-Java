@@ -1,21 +1,27 @@
+import java.awt.print.Paper;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class LinearSearch {
     public static void main(String[] args) {
-        int[] arr = {3,29,104,5,6};
-        int target = 3;
-        System.out.print("Index is : "+linearSearch(arr,target,0));
-
+        int[] arr = {3,2,1,53,53};
+        int target = 539;
+        ArrayList<Integer> l = new ArrayList<>();
+        System.out.println(linearSearch(arr,target,0,l));
     }
-    public static int linearSearch(int[] arr,int target,int index)
+    public static ArrayList<Integer> linearSearch(int[] arr, int target,int index,ArrayList<Integer> list)
     {
-        if(index>=arr.length-1)
+
+        if(index==arr.length)
         {
-            return -1;
+            return list;
         }
-        if(arr[index]==target)
+        else if(arr[index]==target)
         {
-            return index;
+            list.add(index);
         }
-        return linearSearch(arr,target,index+1);
+        return linearSearch(arr,target,index+1,list);
     }
 
 }

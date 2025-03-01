@@ -1,7 +1,7 @@
 public class FindingElementInRotatedArray {
     public static void main(String[] args) {
        int[] arr = {8,9,10,1,3,4};
-       int target = 1;
+       int target = 43;
         System.out.println("Index is : "+indexElement(arr,0,arr.length-1,target));
     }
 
@@ -17,7 +17,7 @@ public class FindingElementInRotatedArray {
 
           if(arr[start]<=arr[mid])
           {
-              if(arr[start]<=target && arr[mid]>target)
+              if(arr[start]<=target && arr[mid]>=target)
               {
                 return indexElement(arr,start,mid-1,target);
               }
@@ -26,7 +26,7 @@ public class FindingElementInRotatedArray {
               }
           }
           else {
-                if(arr[mid]<target && arr[end]>=target)
+                if(arr[mid]<=target && arr[end]>=target)
                 {
                     return indexElement(arr,mid+1,end,target);
                 }

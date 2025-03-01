@@ -1,48 +1,43 @@
 import java.util.Arrays;
 
-class QuickSortAscendingOrder{
+class QuickSortAscendingOrder {
     public static void main(String[] args) {
-        int[] arr = {5,4,3,2,1};
+        int[] arr = {5,9 ,-100};
         quickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
 
-    public static void quickSort(int[] arr, int start, int end) {
-        if (start < end) {
-            int p = findPivotIndex(arr, start, end);
-            quickSort(arr, start, p - 1);
-            quickSort(arr, p + 1, end);
+    public static void quickSort(int[] arr, int low, int high) {
+        if(low>=high)
+        {
+            return;
         }
-    }
-
-    public static int findPivotIndex(int[] arr, int low, int high) {
-        int mid = low+(high-low)/2;
-        int pivot = arr[low];  // Choose the first element as pivot
-        int i = low + 1;       // Start `i` from `low + 1`
-        int j = high;         // Start `j` from `high`
-
-        while (i <= j) {
-            // Move `i` to the right until an element greater than the pivot is found
-            while (i <= j && arr[i] <= pivot) {
+        int i = low;
+        int j = high;
+        int mid = low + (high - low) / 2;
+        int pivot = arr[mid];
+            while (i <= j) {
+            while (i <= j && arr[i] < pivot) {
                 i++;
             }
-            // Move `j` to the left until an element less than the pivot is found
-            while (i <= j && arr[j] >= pivot) {
+            while (i <= j && arr[j] > pivot) {
                 j--;
             }
-            // Swap elements if `i` and `j` have not crossed
-            if (i < j) {
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+            if (i <= j) {
+                swap(arr, i, j);
+                i++;
+                j--;
             }
         }
-        // Swap the pivot with `arr[j]` to place it in the correct position
-        int temp = arr[low];
-        arr[low] = arr[j];
-        arr[j] = temp;
+            quickSort(arr, i, high);
+            quickSort(arr,low,j);
 
-        // Return the pivot index
-        return j;
+    }
+
+    // Helper method to swap two elements in the array
+    public static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 }

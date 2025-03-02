@@ -4,15 +4,24 @@ import java.util.List;
 
 public class Set {
     public static void main(String[] args) {
+       int[] arr = {1,2,3,10};
+        System.out.println(setOperation(arr));
     }
-    public static List<List<Integer>> setOperation(List<Integer> list,int index)
+    public static List<List<Integer>> setOperation(int[] arr)
     {
-        if (list.isEmpty())
+                  List<List<Integer>> result = new ArrayList<>();
+                backTrack (result,new ArrayList<>(),arr,0);
+                  return result;
+    }
+    public static void backTrack(List<List<Integer>> result,List<Integer> tempList,int[] arr,int start)
+    {
+        result.add(new ArrayList<>(tempList));//take the copy of original array
+        for(int i = start;i<arr.length;i++)
         {
-            return new ArrayList<>();
+            tempList.add(arr[i]);
+            backTrack(result,tempList,arr,i+1);
+            tempList.remove(tempList.size()-1);
         }
-        list.add(index);
-        ArrayList<Integer> ls = setOperation(list,)
     }
 
 }

@@ -2,6 +2,7 @@ public class fibnoccieSeries {
     public static void main(String[] args) {
         int ans = fib(5);
         System.out.println(ans);
+
     }
     static int fib(int n)
     {

@@ -15,7 +15,7 @@ public class Main
             return;
         }
 
-        int mid = start+(end-start)/2;
+        int mid = start+(end-start);
         mergeSort(arr,start,mid);//to divide left side array
         mergeSort(arr,mid,end);//to divide right side array
         sortingElements(arr,start,mid,end);

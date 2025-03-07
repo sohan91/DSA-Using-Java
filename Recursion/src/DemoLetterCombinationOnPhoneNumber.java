@@ -3,7 +3,7 @@ import java.util.List;
 
 public class DemoLetterCombinationOnPhoneNumber {
     public static void main(String[] args) {
-        String digits = "2";
+        String digits = "23";
         System.out.println(getCombination(digits));
     }
 

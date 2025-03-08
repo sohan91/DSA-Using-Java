@@ -12,17 +12,17 @@ public class KNightProblem {
                 {5,8,1},
                 {2,7,4}
         };
-        System.out.println(KNight(arr));
+        System.out.println(kNightPbm(arr));
     }
-        public static boolean KNight(int[][] board)
+        public static boolean kNightPbm(int[][] board)
         {
             if(board[0][0]!=0)
             {
                 return false;
             }
-            return isNKnight(board,0,0,0);
+            return isKnight(board,0,0,0);
         }
-    public static boolean isNKnight(int[][] board,int row,int col,int num)
+    public static boolean isKnight(int[][] board, int row, int col, int num)
     {
         int size = board.length;
         int i,j;
@@ -34,7 +34,7 @@ public class KNightProblem {
         j = col-1;
         if(i>=0 && j>=0 && board[i][j] == num+1)
         {
-            return isNKnight(board,i,j,num+1);
+            return isKnight(board,i,j,num+1);
         }
 
         //2-up 1-right
@@ -42,7 +42,7 @@ public class KNightProblem {
         j = col+1;
         if(i>=0 && j<size && board[i][j] == num+1)
         {
-            return isNKnight(board,i,j,num+1);
+            return isKnight(board,i,j,num+1);
         }
 
         //2-left 1-up
@@ -50,7 +50,7 @@ public class KNightProblem {
         j = col-2;
         if(i>=0 && j>=0 && board[i][j] == num+1)
         {
-            return isNKnight(board,i,j,num+1);
+            return isKnight(board,i,j,num+1);
         }
 
         //2-left 1-down
@@ -58,7 +58,7 @@ public class KNightProblem {
         j = col-2;
         if(i<size && j>=0 && board[i][j] == num+1)
         {
-            return isNKnight(board,i,j,num+1);
+            return isKnight(board,i,j,num+1);
         }
 
         //2-down 1-left
@@ -66,7 +66,7 @@ public class KNightProblem {
         j = col-1;
         if(i<size && j>=0 && board[i][j] == num+1)
         {
-            return isNKnight(board,i,j,num+1);
+            return isKnight(board,i,j,num+1);
         }
 
         //2-down 1-right
@@ -74,7 +74,7 @@ public class KNightProblem {
         j = col+1;
         if(i<size && j<size && board[i][j] == num+1)
         {
-            return isNKnight(board,i,j,num+1);
+            return isKnight(board,i,j,num+1);
         }
 
         //2-right 1-up
@@ -82,7 +82,7 @@ public class KNightProblem {
         j = col+2;
         if(i>=0 && j<size && board[i][j] == num+1)
         {
-            return isNKnight(board,i,j,num+1);
+            return isKnight(board,i,j,num+1);
         }
 
         //2-right 1-down
@@ -90,7 +90,7 @@ public class KNightProblem {
         j = col+2;
         if(i<size && j<size && board[i][j] == num+1)
         {
-            return isNKnight(board,i,j,num+1);
+            return isKnight(board,i,j,num+1);
         }
         return false;
     }

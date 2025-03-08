@@ -1,93 +1,86 @@
-import java.util.ArrayList;
-import java.util.List;
+import javax.swing.*;
+import java.awt.print.Paper;
 
 public class NQueensProblem {
     public static void main(String[] args) {
-        int num = 4;
-        System.out.println(nQueen(num));
-    }
-    public static List<List<String>> nQueen(int size)
-    {
-        List<List<String>> list = new ArrayList<>();
-        char[][] charArray = new char[size][size];
-        nQueensProblem(charArray,list,0,size);
-        return list;
-
+        int n = 4;
+        boolean[][] booleans = new boolean[n][n];
+        System.out.println(queen(booleans,0));
     }
 
-    public static void nQueensProblem(char[][] charArray,List<List<String>> list,int row,int size)
+    public static int queen(boolean[][] board,int row)
     {
-
-        if(row == size)
+        if(row == board.length)
         {
-
-            display(charArray,list);
-            return;
+            display(board);
+            System.out.println();
+            return 1;
         }
-        for(int col = 0;col<size;col++) {
-            if (isPositioned(charArray, row, col, size)) {
-                charArray[row][col] = 'Q';
-
-                nQueensProblem(charArray, list, row + 1, size);
-                charArray[row][col] = '.';
+        int count = 0;
+        for (int col = 0; col < board.length; col++) {
+            if(isSafe(board,row,col))
+            {
+                board[row][col] = true;
+                count += queen(board,row+1);
+                board[row][col] =false;
             }
+
         }
+        return count;
+
+
     }
 
-    public static boolean isPositioned(char[][] charArray,int row,int col,int size)
+    public static boolean isSafe(boolean[][] board,int row,int col)
     {
-        for(int i = 0;i<size;i++)
+        for(int i = 0;i<row;i++)
         {
-            if(charArray[row][i] == 'Q')
+            if(board[i][col])
+            {
+                return false;
+            }
+        }
+        //diagonal left
+        int maxLeft = Math.min(row,col);
+        for(int i = 1;i<=maxLeft;i++)
+        {
+            if(board[row-i][col-i])
             {
                 return false;
             }
         }
 
-        for (int i = 0;i<size;i++)
+        //diagonal right
+        int maxRight = Math.min(row,board.length-col-1);
+        for(int i = 1;i<=maxRight;i++)
         {
-            if(charArray[i][col] == 'Q')
+            if(board[row-i][col+i])
             {
                 return false;
             }
         }
 
-        for(int i = row,j = col;i>=0 && j>=0;i--,j--)
-        {
-            if(charArray[i][j] == 'Q')
-            {
-                return false;
-            }
-        }
-
-        for(int i = row,j = col;i>=0 && j<size;i--,j++)
-        {
-            if(charArray[i][j] == 'Q')
-            {
-                return false;
-            }
-        }
         return true;
+
     }
 
-    public static void   display(char[][] arr,List<List<String>> list)
+
+    public static void display(boolean[][] booleans)
     {
-        String row = "";
-        List<String> rowList = new ArrayList<>();
-        for(int i = 0;i<arr.length;i++) {
-            row = "";
-            for (int j = 0; j < arr[0].length; j++) {
-                if (arr[i][j] == 'Q')
-                    row += 'Q';
-                else
-                    row += '.';
+        for(boolean[] row:booleans)
+        {
+            for(boolean col : row)
+            {
+                if(col)
+                {
+                    System.out.print("Q ");
+                }
+                else {
+                    System.out.print("X ");
+                }
             }
-
-            rowList.add(row);
+            System.out.println();
         }
-        list.add(rowList);
-
-     //   System.out.println("possible ways of placing a queen is "+count);
     }
 
 }

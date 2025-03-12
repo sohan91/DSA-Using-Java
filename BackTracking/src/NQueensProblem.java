@@ -1,86 +1,95 @@
-import javax.swing.*;
-import java.awt.print.Paper;
+import java.util.ArrayList;
+import java.util.List;
 
 public class NQueensProblem {
     public static void main(String[] args) {
-        int n = 4;
-        boolean[][] booleans = new boolean[n][n];
-        System.out.println(queen(booleans,0));
+        int num = 10;
+        nQueen(num);
     }
-
-    public static int queen(boolean[][] board,int row)
+    public static void nQueen(int num)
     {
-        if(row == board.length)
-        {
-            display(board);
-            System.out.println();
-            return 1;
-        }
-        int count = 0;
-        for (int col = 0; col < board.length; col++) {
-            if(isSafe(board,row,col))
-            {
-                board[row][col] = true;
-                count += queen(board,row+1);
-                board[row][col] =false;
-            }
-
-        }
-        return count;
-
+        List<List<String>> list = new ArrayList<>();
+        char[][] board = new char[num][num];
+        queen(list,board,0,num);
 
     }
 
-    public static boolean isSafe(boolean[][] board,int row,int col)
+    public static void queen(List<List<String>> list,char[][] board,int row,int size)
     {
-        for(int i = 0;i<row;i++)
+      if (row == size)
+      {
+          display(board);
+          return;
+      }
+
+      for(int col = 0;col<size;col++)
+      {
+          if(isPositioned(board,row,col,size))
+          {
+              board[row][col] = 'Q';
+              queen(list,board,row+1,size);
+              board[row][col] = '.';
+          }
+      }
+    }
+
+    public static boolean isPositioned(char[][] arr,int row,int col,int size)
+    {
+        for(int i = 0;i<size;i++)
         {
-            if(board[i][col])
+            if(arr[row][i] == 'Q')
             {
-                return false;
+                return  false;
             }
         }
-        //diagonal left
-        int maxLeft = Math.min(row,col);
-        for(int i = 1;i<=maxLeft;i++)
+        for(int i = 0;i<size;i++)
         {
-            if(board[row-i][col-i])
+            if(arr[i][col] == 'Q')
+            {
+                return  false;
+            }
+        }
+
+        //diagonal-left
+        for(int i = row,j=col;i>=0 && j>=0; i--,j--)
+        {
+            if(arr[i][j] == 'Q')
             {
                 return false;
             }
         }
 
-        //diagonal right
-        int maxRight = Math.min(row,board.length-col-1);
-        for(int i = 1;i<=maxRight;i++)
+        //diagonal-right
+        for(int i = row,j=col;i>=0 && j<size; i--,j++)
         {
-            if(board[row-i][col+i])
+            if(arr[i][j] == 'Q')
             {
                 return false;
             }
         }
-
         return true;
 
     }
 
-
-    public static void display(boolean[][] booleans)
+    public static void display(char[][] arr)
     {
-        for(boolean[] row:booleans)
+        String row = "";
+        List<String> charList = new ArrayList<>();
+
+        for(int i = 0;i<arr.length;i++)
         {
-            for(boolean col : row)
+            row = "";
+            for(int j = 0;j<arr[0].length;j++)
             {
-                if(col)
-                {
+                if(arr[i][j] == 'Q')
                     System.out.print("Q ");
-                }
-                else {
-                    System.out.print("X ");
-                }
+                else
+                    System.out.print("x ");
             }
             System.out.println();
         }
+        System.out.println();
+
     }
 
 }

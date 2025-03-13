@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="580be47e-d02d-444c-a467-5ffb2bd1f439" name="Changes" comment="" />
+    <list default="true" id="580be47e-d02d-444c-a467-5ffb2bd1f439" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SubSetOnArrays.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SubSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackTracking/src/NQueensProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BackTracking/src/NQueensProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MathematicalOperation/src/LCM_AND_HCF.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MathematicalOperation/src/LCM_AND_HCF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,9 +30,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2uDIsg0IaQpdqKynEYSzCfHRy00" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -32,8 +42,9 @@
   "keyToString": {
     "Application.SubSet.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "debug-branch",
-    "kotlin-language-version-configured": "true"
+    "git-widget-placeholder": "Merging master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/SOHAN/DSA USING JAVA/BackTracking"
   }
 }]]></component>
   <component name="RunManager">

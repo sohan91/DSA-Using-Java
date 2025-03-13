@@ -3,7 +3,7 @@ import java.util.List;
 
 public class NQueensProblem {
     public static void main(String[] args) {
-        int num = 10;
+        int num = 4;
         nQueen(num);
     }
     public static void nQueen(int num)

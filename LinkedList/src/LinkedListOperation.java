@@ -87,6 +87,21 @@ class Operation{
         }
         System.out.print("END");
     }
+
+    public int deleteFirst()
+    {
+        int data = head.data;
+        head = head.next;
+        if(tail.next == null)
+        {
+            tail = null;
+        }
+        if(head.next == null)
+        {
+            head = null;
+        }
+        return data;
+    }
 }
 
 public class LinkedListOperation {
@@ -107,6 +122,10 @@ public class LinkedListOperation {
         operation.insertAtFirst(21);
         operation.insertAtFirst(12);
         System.out.print("Insert at from Head/Start : ");
+        operation.display();
+        System.out.println("\n"+"-".repeat(30));
+        System.out.println("delete first element i.e., : "+operation.deleteFirst());
+        System.out.print("After Deleting : ");
         operation.display();
         System.out.println("\n"+"-".repeat(30));
     }

@@ -137,14 +137,14 @@ class Operation{
         {
             return deleteLast();
         }
-        Node node = head;
+        Node prev = head;
         for(int i = 1;i<index;i++)
         {
-            node = node.next;
+            prev = prev.next;
         }
-        Node target = node.next;
+        Node target = prev.next;
         int data = target.data;
-        node.next = target.next;
+        prev.next = target.next;
         size--;
         return data;
     }

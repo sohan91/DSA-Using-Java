@@ -69,7 +69,5 @@ public class LinkedListOperation {
         System.out.print("Insert at from Head/Start : ");
         operation.display();
         System.out.println("\n"+"-".repeat(30));
-
-
     }
 }

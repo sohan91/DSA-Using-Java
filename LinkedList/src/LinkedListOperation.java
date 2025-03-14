@@ -14,7 +14,7 @@ class Node
     }
 }
 class Operation{
-    private  static int size = 1;
+    private  static int size = 0;
     Node tail = null;
     Node head = null;
 
@@ -59,7 +59,7 @@ class Operation{
             insertAtFirst(data);
             return;
         }
-        if(index == size-1)
+        if(index == size)
         {
             insertAtLast(data);
             return;
@@ -70,6 +70,7 @@ class Operation{
             temp = temp.next;
         }
         temp.next = new Node(data,temp.next);
+        size++;
     }
     public void display()
     {
@@ -92,15 +93,64 @@ class Operation{
     {
         int data = head.data;
         head = head.next;
-        if(tail.next == null)
+        if(tail.next == null && head.next == null)
         {
             tail = null;
-        }
-        if(head.next == null)
-        {
             head = null;
         }
+
+        size--;
         return data;
+    }
+    public Node getNode(int index)
+    {  Node node = head;
+        if(head == null || tail == null || head == tail)//if list is empty List or single node
+        {
+            return null;
+        }
+       for(int i = 0;i<index;i++){//traverse until second last
+            node = node.next;
+        }
+        return node;
+    }
+    public int deleteLast()
+    {
+      if (size<=1)
+      {
+          return deleteFirst();
+      }
+
+      Node node = getNode(size-2);
+      int data = tail.data;
+      tail = node;
+      tail.next = null;
+      size--;
+       return data;
+    }
+    public int deleteIndexPosition(int index)
+    {
+        if(index == 0)
+        {
+            return deleteFirst();
+        }
+        if(index == size-1)
+        {
+            return deleteLast();
+        }
+        Node node = head;
+        for(int i = 1;i<index;i++)
+        {
+            node = node.next;
+        }
+        Node target = node.next;
+        int data = target.data;
+        node.next = target.next;
+        size--;
+        return data;
+    }
+    public int getSize()
+    {
+        return size;
     }
 }
 
@@ -111,22 +161,34 @@ public class LinkedListOperation {
        operation.insertAtLast(20);
        operation.insertAtLast(12);
        operation.insertAtLast(30);
+        operation.insertAtLast(40);
+        operation.insertAtLast(60);
        operation.insertInMiddle(44,3);
        operation.display();
         System.out.println("\n"+"-".repeat(30));
         System.out.print("\nInsertion at from Last/Tail : ");
         operation.display();
+        System.out.println("\nsize is : "+operation.getSize());
         System.out.println("\n"+"-".repeat(30));
-        operation.insertAtFirst(39);
-        operation.insertAtFirst(22);
-        operation.insertAtFirst(21);
-        operation.insertAtFirst(12);
-        System.out.print("Insert at from Head/Start : ");
-        operation.display();
-        System.out.println("\n"+"-".repeat(30));
+
+        System.out.println("size is : "+operation.getSize());
         System.out.println("delete first element i.e., : "+operation.deleteFirst());
         System.out.print("After Deleting : ");
         operation.display();
+        System.out.println("\nsize is : "+operation.getSize());
         System.out.println("\n"+"-".repeat(30));
+
+        System.out.println("size is : "+operation.getSize());
+        System.out.println("delete Last element i.e., : "+operation.deleteLast());
+        System.out.print("After Deleting : ");
+        operation.display();
+        System.out.println("\nsize is : "+operation.getSize());
+        System.out.println("-".repeat(30));
+
+        System.out.println("size is : "+operation.getSize());
+        System.out.println("delete Last element i.e., : "+operation.deleteIndexPosition(2));
+        System.out.print("After Deleting : ");
+        operation.display();
+        System.out.println("\nsize is : "+operation.getSize());
     }
 }

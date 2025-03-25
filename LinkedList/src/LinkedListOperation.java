@@ -1,30 +1,47 @@
+public class LinkedListOperation
+{
+    public static void main(String[] args)
+    {
+        Operation op = new Operation();
+        op.insertLast(20);
+        op.insertLast(30);
+        op.insertLast(40);
+        op.insertLast(35);
+        op.insertMiddle(2,11);
+        op.display();
+        op.deleteMiddle(2);
+        op.display();
+        op.deleteFirst();
+        op.display();
+        op.deleteLast();
+        op.display();
+    }
+}
+
 class Node
 {
     int data;
     Node next;
-   Node(int data)
-   {
-       this.data = data;
-       this.next = null;
-   }
-    Node(int data,Node next)
+    Node(int data)
     {
         this.data = data;
-        this.next = next;
+        this.next = null;
     }
 }
-class Operation{
-    private  static int size = 0;
-    Node tail = null;
-    Node head = null;
 
-    public void insertAtFirst(int data)
+class Operation
+{
+    static int size = 0;
+    Node head = null;
+    Node tail = null;
+
+    public void insertFirst(int data)
     {
         Node node = new Node(data);
         if(head == null)
         {
-            tail = node;
             head = node;
+            tail = node;
             size++;
             return;
         }
@@ -33,12 +50,13 @@ class Operation{
         size++;
     }
 
-    public void insertAtLast(int data)
+    public void insertLast(int data)
     {
         Node node = new Node(data);
-        if(tail == null) {
-            head = node;
+        if(tail == null)
+        {
             tail = node;
+            head = node;
             size++;
             return;
         }
@@ -47,148 +65,113 @@ class Operation{
         size++;
     }
 
-    public void insertInMiddle(int data,int index)
+    public void display()
     {
-        if(index>size-1 || index<0)
+        if(head == null)
         {
-            System.out.println("Invalid Index...Can't Perform Operation !!!");
+            System.out.println("List is empty...");
+            return;
+        }
+        Node temp = head;
+        while(temp != null)
+        {
+            System.out.print(temp.data+" -> ");
+            temp = temp.next;
+        }
+        System.out.print("HEAD\n");
+    }
+
+    public void insertMiddle(int index,int data)
+    {
+        if(head == null && tail == null)
+        {
+            System.out.print("Can't perform operation on given index....");
             return;
         }
         if(index == 0)
         {
-            insertAtFirst(data);
+            insertFirst(data);
+            size++;
             return;
         }
-        if(index == size)
+        if(index == size-1)
         {
-            insertAtLast(data);
+            insertLast(data);
+            size++;
             return;
         }
+        Node node = new Node(data);
         Node temp = head;
         for(int i = 1;i<index;i++)
         {
             temp = temp.next;
         }
-        temp.next = new Node(data,temp.next);
-        size++;
+        node.next = temp.next;
+        temp.next = node;
+        size++; // Update size
     }
-    public void display()
+
+    public void deleteFirst()
     {
         if(head == null)
         {
-            System.out.println("List is Empty.......");
+            System.out.println("List is empty..");
             return;
         }
-        Node temp;
-        temp = head;
-        while (temp != null)
-        {
-            System.out.print(temp.data+" -> ");
-            temp = temp.next;
-        }
-        System.out.print("END");
-    }
-
-    public int deleteFirst()
-    {
         int data = head.data;
         head = head.next;
-        if(tail.next == null && head.next == null)
-        {
-            tail = null;
-            head = null;
-        }
-
+        System.out.println("\nDeleted element at first is "+data);
         size--;
-        return data;
     }
-    public Node getNode(int index)
-    {  Node node = head;
-        if(head == null || tail == null || head == tail)//if list is empty List or single node
+    public void deleteLast()
+    {
+
+        if(tail == null)
         {
-            return null;
+            System.out.println("List is empty..");
+            return;
         }
-       for(int i = 0;i<index;i++){//traverse until second last
+        int data = tail.data;
+        Node node = head;
+        while(node.next != tail)
+        {
             node = node.next;
         }
-        return node;
+        node.next = null;
+        tail = node;
+        size--;
+        System.out.println("\nDeleted element at last is "+data);
     }
-    public int deleteLast()
-    {
-      if (size<=1)
-      {
-          return deleteFirst();
-      }
 
-      Node node = getNode(size-2);
-      int data = tail.data;
-      tail = node;
-      tail.next = null;
-      size--;
-       return data;
-    }
-    public int deleteIndexPosition(int index)
+    public void deleteMiddle(int index)
     {
+        if(head == null && tail == null)
+        {
+            System.out.println("List is empty..");
+            return;
+        }
         if(index == 0)
         {
-            return deleteFirst();
+            deleteFirst();
+            size--;
+            return;
         }
         if(index == size-1)
         {
-            return deleteLast();
+            deleteLast();
+            size--;
+            return;
         }
-        Node prev = head;
+
+        Node node = head;
         for(int i = 1;i<index;i++)
         {
-            prev = prev.next;
+            node = node.next;
         }
-        Node target = prev.next;
-        int data = target.data;
-        prev.next = target.next;
-        size--;
-        return data;
+        Node temp = node.next;
+        System.out.println("Deleted element as per index position is "+temp.data);
+        node.next = temp.next;
     }
-    public int getSize()
-    {
-        return size;
-    }
-}
 
-public class LinkedListOperation {
-    public static void main(String[] args) {
-       Operation operation = new Operation();
-       operation.insertAtLast(10);
-       operation.insertAtLast(20);
-       operation.insertAtLast(12);
-       operation.insertAtLast(30);
-        operation.insertAtLast(40);
-        operation.insertAtLast(60);
-       operation.insertInMiddle(44,3);
-       operation.display();
-        System.out.println("\n"+"-".repeat(30));
-        System.out.print("\nInsertion at from Last/Tail : ");
-        operation.display();
-        System.out.println("\nsize is : "+operation.getSize());
-        System.out.println("\n"+"-".repeat(30));
 
-        System.out.println("size is : "+operation.getSize());
-        System.out.println("delete first element i.e., : "+operation.deleteFirst());
-        System.out.print("After Deleting : ");
-        operation.display();
-        System.out.println("\nsize is : "+operation.getSize());
-        System.out.println("\n"+"-".repeat(30));
-
-        System.out.println("size is : "+operation.getSize());
-        System.out.println("delete Last element i.e., : "+operation.deleteLast());
-        System.out.print("After Deleting : ");
-        operation.display();
-        System.out.println("\nsize is : "+operation.getSize());
-        System.out.println("-".repeat(30));
-
-        System.out.println("size is : "+operation.getSize());
-        System.out.println("delete Last element i.e., : "+operation.deleteIndexPosition(2));
-        System.out.print("After Deleting : ");
-        operation.display();
-        System.out.println("\nsize is : "+operation.getSize());
-    }
 }

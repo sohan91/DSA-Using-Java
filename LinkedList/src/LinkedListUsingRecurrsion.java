@@ -7,7 +7,7 @@ public class LinkedListUsingRecurrsion {
         op.insertAtLast(18);
         op.insertAtLast(30);
         op.display();
-        op.insert(2,44);
+        op.insert(3,44);
         op.display();
     }
 }
@@ -29,22 +29,22 @@ class RecursionOperation
         tail = node;
         size++;
     }
-    public void insert(int index,int value)
-    {
-        head = insertRec(index,value,head);
-    }
-    public Node insertRec(int index,int value,Node node)
-    {
-        if(index == 0)
-        {
-            Node temp = new Node(value,node);
-            size++;
-            return temp;
-        }
+  public void insert(int index,int value)
+  {
+      head = insertRec(index,value,head);
+  }
+  public Node insertRec(int index,int value,Node node)
+  {
+      if(index == 0)
+      {
+          Node temp = new Node(value,node);
+          size++;
+          return temp;
+      }
+      node.next = insertRec(--index,value,node.next);
+      return node;
+  }
 
-        node.next = insertRec(index-1,value,node.next);
-        return node;
-    }
     public void display()
     {
         if(head == null)

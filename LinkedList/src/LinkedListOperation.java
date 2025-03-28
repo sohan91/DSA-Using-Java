@@ -152,6 +152,21 @@ class Operation{
     {
         return size;
     }
+
+    public void removeDuplication()
+    {
+        Node temp = head;
+        while (temp != null && temp.next != null)
+        {
+            if(temp.data == temp.next.data)
+            {
+                temp.next = temp.next.next;
+            }
+            else {
+                temp = temp.next;
+            }
+        }
+    }
 }
 
 public class LinkedListOperation {
@@ -159,9 +174,9 @@ public class LinkedListOperation {
        Operation operation = new Operation();
        operation.insertAtLast(10);
        operation.insertAtLast(20);
-       operation.insertAtLast(12);
+       operation.insertAtLast(20);
        operation.insertAtLast(30);
-        operation.insertAtLast(40);
+        operation.insertAtLast(20);
         operation.insertAtLast(60);
        operation.insertInMiddle(44,3);
        operation.display();
@@ -190,5 +205,10 @@ public class LinkedListOperation {
         System.out.print("After Deleting : ");
         operation.display();
         System.out.println("\nsize is : "+operation.getSize());
+
+        System.out.println("-".repeat(30));
+        System.out.println("After removing duplication : ");
+        operation.removeDuplication();
+        operation.display();
     }
 }

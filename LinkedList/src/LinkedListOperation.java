@@ -7,6 +7,11 @@ class Node
        this.data = data;
        this.next = null;
    }
+   Node()
+   {
+       this.data = 0;
+       this.next = null;
+   }
     Node(int data,Node next)
     {
         this.data = data;
@@ -86,7 +91,7 @@ class Operation{
             System.out.print(temp.data+" -> ");
             temp = temp.next;
         }
-        System.out.print("END");
+        System.out.print("END\n");
     }
 
     public int deleteFirst()
@@ -161,12 +166,44 @@ class Operation{
             if(temp.data == temp.next.data)
             {
                 temp.next = temp.next.next;
+                size--;
             }
             else {
                 temp = temp.next;
             }
         }
+    }public Operation mergeSortedList(Operation op1,Operation op2)
+    {
+        Node first = op1.head;
+        Node second = op2.head;
+        Operation operation = new Operation();
+        while(first != null && second != null)
+        {
+
+            if(first.data < second.data)
+            {
+                operation.insertAtLast(first.data);
+                first = first.next;
+            }
+            else {
+                operation.insertAtLast(second.data);
+                second = second.next;
+            }
+        }
+
+        while(first != null)
+        {
+            operation.insertAtLast(first.data);
+            first = first.next;
+        }
+        while(second != null)
+        {
+            operation.insertAtLast(second.data);
+            second = second.next;
+        }
+        return operation;
     }
+
 }
 
 public class LinkedListOperation {

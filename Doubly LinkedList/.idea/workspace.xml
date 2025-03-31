@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9043885-4e25-4061-b29b-da681e6d9a0d" name="Changes" comment="" />
+    <list default="true" id="a9043885-4e25-4061-b29b-da681e6d9a0d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LinkedList/src/LinkedListOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LinkedList/src/LinkedListOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LinkedList/src/LinkedListUsingRecurrsion.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LinkedList/src/LinkedListUsingRecurrsion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LinkedList/src/PerformingRemovingDuplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LinkedList/src/PerformingRemovingDuplication.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,27 +25,28 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2unxHgdOC1ddEXZm14zg9HZ2jEf" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.DoublyLinkedListOperations (1).executor": "Run",
-    "Application.DoublyLinkedListOperations (2).executor": "Debug",
-    "Application.DoublyLinkedListOperations (3).executor": "Run",
-    "Application.DoublyLinkedListOperations (4).executor": "Run",
-    "Application.DoublyLinkedListOperations (5).executor": "Run",
-    "Application.DoublyLinkedListOperations.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DoublyLinkedListOperations (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.DoublyLinkedListOperations (2).executor&quot;: &quot;Debug&quot;,
+    &quot;Application.DoublyLinkedListOperations (3).executor&quot;: &quot;Run&quot;,
+    &quot;Application.DoublyLinkedListOperations (4).executor&quot;: &quot;Run&quot;,
+    &quot;Application.DoublyLinkedListOperations (5).executor&quot;: &quot;Run&quot;,
+    &quot;Application.DoublyLinkedListOperations.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/SOHAN/DSA USING JAVA/Doubly LinkedList&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.DoublyLinkedListOperations (1)">
     <configuration name="DoublyLinkedListOperations (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DoublyLinkedListOperations" />

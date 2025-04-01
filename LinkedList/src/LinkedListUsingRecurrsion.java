@@ -37,7 +37,7 @@ class RecursionOperation
   {
       if(index == 0)
       {
-          Node temp = new Node(value,node);
+          Node temp = new Node(value);
           size++;
           return temp;
       }

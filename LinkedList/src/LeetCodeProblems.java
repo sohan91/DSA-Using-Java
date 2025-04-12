@@ -10,6 +10,14 @@ public class LeetCodeProblems {
         System.out.println("Is Linked List is Cyclic : "+operations.isAcyclic());
         operations.countOfCyclicNode();
 
+        LeetCodeOperations operations1 = new LeetCodeOperations();
+        operations1.insertAtLast(1);
+        operations1.insertAtLast(2);
+        operations1.insertAtLast(2);
+        operations1.insertAtLast(1);
+//        operations1.display();
+        System.out.println("is List is Palindrome : " +operations1.palindromeCheck());
+
     }
 }
 class LeetCodeOperations
@@ -87,7 +95,7 @@ class LeetCodeOperations
         Node slow = head;
         Node fast = head;
          int count = 0;
-        while(fast.next != null && fast != null)
+        while(fast != null && fast.next != null)
         {
             slow = slow.next;
             fast = fast.next.next;
@@ -98,13 +106,66 @@ class LeetCodeOperations
                     count++;
                     temp = temp.next;
                 }while(temp != fast);
-                System.out.println("Count of Cyclic Nodes are : "+count);
+                System.out.println("Count of Cyclic Node are : "+count);
                 return;
             }
 
         }
 
     }
+    public boolean palindromeCheck()
+    {
+        boolean isPalin;
+         isPalin = isPalindrome(head);
+        return isPalin;
+    }
+    public boolean isPalindrome(Node node)
+    {
+        if(node == null || node.next == null)
+        {
+            return true;
+        }
+        Node slow = node;
+        Node fast = node;
+        while(fast != null && fast.next != null)
+        {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        if(fast != null)
+        {
+            slow = slow.next;
+        }
+        Node reversedOfMiddleList = reverse(slow);
 
+        Node node1 = node;
+        Node node2 = reversedOfMiddleList;
+
+        while(node2 != null)
+        {
+            if(node1.data != node2.data)
+            {
+                return false;
+            }
+            node1 = node1.next;
+            node2 = node2.next;
+        }
+        return true;
+    }
+    public Node reverse(Node node)
+    {
+
+        Node prev = null;
+        Node current = node;
+
+        while (current != null)
+        {
+            Node nextNode = current.next;
+            current.next = prev;
+            prev = current;
+            current = nextNode;
+        }
+        return prev;
+    }
 
 }

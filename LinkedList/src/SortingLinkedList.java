@@ -1,37 +1,45 @@
-
 public class SortingLinkedList {
     public static void main(String[] args) {
         Sort sort = new Sort();
-        sort.insertAtLast(2);
-        sort.insertAtLast(3);
-        sort.insertAtLast(1);
-        sort.insertAtLast(5);
-        sort.insertAtLast(4);
 
+        for(int i = 7;i>=1;i--)
+        {
+            sort.insertAtLast(i);
+        }
         System.out.println("Original List:");
         sort.display();
 
-        sort.sortList();
 
+        sort.bubbleSorting();
         System.out.println("Sorted List:");
+        sort.display();
+
+        sort.reverse();
+        System.out.println("Reversing of LinkedList:");
         sort.display();
     }
 }
-
 class Sort {
     Node head = null;
     Node tail = null;
+    static  int size = 0;
 
-    public void insertAtLast(int data) {
+    public void insertAtLast(int data)
+    {
+
         Node node = new Node(data);
-        if (tail == null) {
+        if(head == null || tail == null)
+        {
             head = node;
             tail = node;
+            size++;
             return;
         }
         tail.next = node;
         tail = node;
+        size++;
     }
+
 
     public void display() {
         if (head == null) {
@@ -98,5 +106,107 @@ class Sort {
         }
 
         return dummy.next;
+    }
+    public Node getNode(int index)
+    {  Node node = head;
+        if(head == null || tail == null || head == tail)//if list is empty List or single node
+        {
+            return null;
+        }
+        for(int i = 0;i<index;i++){//traverse until second last
+            node = node.next;
+        }
+        return node;
+    }
+
+    public void bubbleSorting()
+    {
+        bubbleSort(size-1,0);
+    }
+
+    public void bubbleSort(int row,int col)
+    {
+       if(row == 0)
+       {
+           System.out.println("List is Empty...");
+           return;
+       }
+
+       
+       if(col < row)
+       {
+           Node first = getNode(col);
+           Node sec = getNode(col+1);
+
+           if(first.data > sec.data)
+           {
+               if(first == head)
+               {
+                   head = sec;
+                   first.next = sec.next;
+                   sec.next = first;
+
+               } else if (sec == tail) {
+                   Node prev = getNode(col-1);
+                   prev.next =sec;
+                   tail = first;
+                   first.next = null;
+                   sec.next = tail;
+               }
+
+               else {
+                   Node prev = getNode(col-1);
+                   prev.next = sec;
+                   first.next = sec.next;
+                    sec.next = first;
+               }
+           }
+           bubbleSort(row,col+1);
+       }
+       else {
+bubbleSort(row-1,0);
+       }
+    }
+
+    public void reverse()
+    {
+        reversingOfLinkedList(head);
+        //reverseListWithoutUsingRecursion(head);
+    }
+
+    public void reversingOfLinkedList(Node node)
+    {
+        if(node == tail)
+        {
+            head = node;
+            return;
+        }
+        reversingOfLinkedList(node.next);
+        tail.next = node;
+        tail = node;
+        tail.next = null;
+    }
+    public Node useForReverseLinkedListWhenHeadOnlyPresent(Node head) {
+        if(head == null || head.next == null)
+        {
+            //System.out.println("List is Empty....");
+            return head;
+        }
+        Node prev = null;
+        Node present = head;
+        Node nextNode = present.next;
+
+        while(present != null)
+        {
+            present.next = prev;
+            prev = present;
+            present = nextNode;
+            if(nextNode != null)
+            {
+                nextNode = nextNode.next;
+            }
+        }
+        head = prev;
+        return head;
     }
 }

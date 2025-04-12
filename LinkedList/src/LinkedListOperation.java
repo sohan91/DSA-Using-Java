@@ -12,7 +12,7 @@ class Node
        this.data = 0;
        this.next = null;
    }
-    Node(int data,Node next)
+    Node(int data, Node next)
     {
         this.data = data;
         this.next = next;
@@ -203,7 +203,6 @@ class Operation{
         }
         return operation;
     }
-
 }
 
 public class LinkedListOperation {

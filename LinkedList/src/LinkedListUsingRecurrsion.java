@@ -33,7 +33,7 @@ class RecursionOperation
   {
       head = insertRec(index,value,head);
   }
-  public Node insertRec(int index,int value,Node node)
+  public Node insertRec(int index, int value, Node node)
   {
       if(index == 0)
       {

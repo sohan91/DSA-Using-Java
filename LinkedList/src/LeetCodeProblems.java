@@ -1,3 +1,5 @@
+import org.w3c.dom.Node;
+
 public class LeetCodeProblems {
     public static void main(String[] args) {
         LeetCodeOperations operations = new LeetCodeOperations();
@@ -32,14 +34,28 @@ public class LeetCodeProblems {
         operations2.display();
     }
 }
+class Nodes{
+    int data;
+    Nodes next;
+    Nodes(int data)
+    {
+        this.data = data;
+        this.next = next;
+    }
+    Nodes(int data,Nodes next)
+    {
+        this.data = data;
+        this.next = next;
+    }
+}
 class LeetCodeOperations
 {
-    Node head = null;
-    Node tail = null;
+    Nodes head = null;
+    Nodes tail = null;
     static int size = 0;
     public void insertAtLast(int data)
     {
-        Node node = new Node(data);
+        Nodes node = new Nodes(data);
         if(tail == null) {
             head = node;
             tail = node;
@@ -57,7 +73,7 @@ class LeetCodeOperations
             System.out.println("List is Empty.......");
             return;
         }
-        Node temp;
+        Nodes temp;
         temp = head;
         while (temp != null)
         {
@@ -73,7 +89,7 @@ class LeetCodeOperations
             System.out.println("List is Empty...");
             return;
         }
-        Node temp = head;
+        Nodes temp = head;
         if(cycleIndex == 0)
         {
             temp = head;
@@ -87,8 +103,8 @@ class LeetCodeOperations
 
     public boolean isAcyclic()
     {
-        Node slow = head;
-        Node fast = head;
+        Nodes slow = head;
+        Nodes fast = head;
 
         while(fast.next != null && fast != null)
         {
@@ -104,8 +120,8 @@ class LeetCodeOperations
 
     public void countOfCyclicNode()
     {
-        Node slow = head;
-        Node fast = head;
+        Nodes slow = head;
+        Nodes fast = head;
          int count = 0;
         while(fast != null && fast.next != null)
         {
@@ -113,7 +129,7 @@ class LeetCodeOperations
             fast = fast.next.next;
             if(slow == fast)
             {
-                Node temp = slow;
+                Nodes temp = slow;
                 do{
                     count++;
                     temp = temp.next;
@@ -131,14 +147,14 @@ class LeetCodeOperations
          isPalin = isPalindrome(head);
         return isPalin;
     }
-    public boolean isPalindrome(Node node)
+    public boolean isPalindrome(Nodes node)
     {
         if(node == null || node.next == null)
         {
             return true;
         }
-        Node slow = node;
-        Node fast = node;
+        Nodes slow = node;
+        Nodes fast = node;
         while(fast != null && fast.next != null)
         {
             slow = slow.next;
@@ -148,10 +164,10 @@ class LeetCodeOperations
         {
             slow = slow.next;
         }
-        Node reversedOfMiddleList = reverse(slow);
+        Nodes reversedOfMiddleList = reverse(slow);
 
-        Node node1 = node;
-        Node node2 = reversedOfMiddleList;
+        Nodes node1 = node;
+        Nodes node2 = reversedOfMiddleList;
 
         while(node2 != null)
         {
@@ -164,15 +180,15 @@ class LeetCodeOperations
         }
         return true;
     }
-    public Node reverse(Node node)
+    public Nodes reverse(Nodes node)
     {
 
-        Node prev = null;
-        Node current = node;
+        Nodes prev = null;
+        Nodes current = node;
 
         while (current != null)
         {
-            Node nextNode = current.next;
+            Nodes nextNode = current.next;
             current.next = prev;
             prev = current;
             current = nextNode;
@@ -184,13 +200,13 @@ class LeetCodeOperations
     {
         head = rotation(head,k);
     }
-    public Node rotation(Node node,int k)
+    public Nodes rotation(Nodes node,int k)
     {
         if(node == null || node.next == null || k<=1)
         {
           return node;
         }
-        Node temp = node;
+        Nodes temp = node;
         int count = 1;
         while(temp.next != null)
         {
@@ -200,7 +216,7 @@ class LeetCodeOperations
             temp.next = head;
         int rotationCount = k%count;
         int skip = count - rotationCount;
-        Node newEND = head;
+        Nodes newEND = head;
         for(int i = 0;i<skip-1;i++)
         {
             newEND = newEND.next;

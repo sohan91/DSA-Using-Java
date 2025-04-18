@@ -32,7 +32,7 @@ public class LeetCodeProblems {
         operations2.display();
     }
 }
-class LeetCodeOperations
+class  LeetCodeOperations
 {
     Node head = null;
     Node tail = null;

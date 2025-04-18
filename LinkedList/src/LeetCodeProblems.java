@@ -18,6 +18,18 @@ public class LeetCodeProblems {
 //        operations1.display();
         System.out.println("is List is Palindrome : " +operations1.palindromeCheck());
 
+        LeetCodeOperations operations2 = new LeetCodeOperations();
+        operations2.insertAtLast(1);
+        operations2.insertAtLast(2);
+        operations2.insertAtLast(3);
+        operations2.insertAtLast(4);
+        operations2.insertAtLast(5);
+        operations2.insertAtLast(6);
+
+        operations2.display();
+        System.out.print("After rotation :");
+        operations2.rotationOfNode(3);
+        operations2.display();
     }
 }
 class LeetCodeOperations
@@ -166,6 +178,36 @@ class LeetCodeOperations
             current = nextNode;
         }
         return prev;
+    }
+
+    public void rotationOfNode(int k)
+    {
+        head = rotation(head,k);
+    }
+    public Node rotation(Node node,int k)
+    {
+        if(node == null || node.next == null || k<=1)
+        {
+          return node;
+        }
+        Node temp = node;
+        int count = 1;
+        while(temp.next != null)
+        {
+            temp = temp.next;
+            count++;
+        }
+            temp.next = head;
+        int rotationCount = k%count;
+        int skip = count - rotationCount;
+        Node newEND = head;
+        for(int i = 0;i<skip-1;i++)
+        {
+            newEND = newEND.next;
+        }
+        node = newEND.next;
+        newEND.next = null;
+        return node;
     }
 
 }

@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="580be47e-d02d-444c-a467-5ffb2bd1f439" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../LinkedList/src/LeetCodeProblems.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LinkedList/src/LeetCodeProblems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LinkedList/src/LinkedListOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LinkedList/src/LinkedListOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LinkedList/src/LinkedListUsingRecurrsion.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LinkedList/src/LinkedListUsingRecurrsion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LinkedList/src/SortingLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LinkedList/src/SortingLinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Stack/LeetCodeHistogramMaxRectangleArea.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Stack/NextGreatestElement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Stack/PreviousSmallestElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MergeSort/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MergeSort/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuickSort/src/QuickSortDescendingOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../QuickSort/src/QuickSortDescendingOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SubSetOnArrays.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SubSetOnArrays.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SubSetOnArrays/SubSet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SubSetOnArrays/SubSet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SubSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SubSet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,18 +41,35 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.SubSet.executor": "Run",
+    "Application.SubSet (1).executor": "Debug",
+    "Application.SubSet (2).executor": "Run",
+    "Application.SubSet.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/SOHAN/DSA USING JAVA/BackTracking",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.16927323"
+    "last_opened_file_path": "D:/SOHAN/DSA USING JAVA/PermitutationAndCombination",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.1515625",
+    "project.structure.side.proportion": "0.16927323",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="SubSet" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.SubSet">
+    <configuration name="SubSet (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SubSet" />
+      <module name="SubSetOnArrays" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SubSet (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SubSet" />
+      <module name="SubSetOnArrays" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SubSet" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SubSet" />
       <module name="SubSetOnArrays" />
       <method v="2">
@@ -56,7 +78,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SubSet (1)" />
         <item itemvalue="Application.SubSet" />
+        <item itemvalue="Application.SubSet (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -70,5 +94,25 @@
       <updated>1741776926386</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/SubSet.java</url>
+          <line>3</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/SubSet.java</url>
+          <line>4</line>
+          <properties class="SubSet" method="main">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

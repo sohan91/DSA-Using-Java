@@ -5,6 +5,7 @@ public class SubSet {
     public static void main(String[] args) {
         int[] arr = {1,2,3};
         System.out.println(subSet(arr));
+
     }
     public static List<List<Integer>> subSet(int[] arr)
     {

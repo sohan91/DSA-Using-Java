@@ -17,7 +17,5 @@ public class DiagonalDestinationPath {
         if (j<end) {
             path(name + "V", i, j + 1, end);
         }
-
-
     }
 }

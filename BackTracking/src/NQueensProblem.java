@@ -4,17 +4,10 @@ import java.util.List;
 public class NQueensProblem {
     public static void main(String[] args) {
         int num = 4;
-        nQueen(num);
-    }
-    public static void nQueen(int num)
-    {
-        List<List<String>> list = new ArrayList<>();
         char[][] board = new char[num][num];
-        queen(list,board,0,num);
-
+        queen(board,0,num);
     }
-
-    public static void queen(List<List<String>> list,char[][] board,int row,int size)
+    public static void queen(char[][] board,int row,int size)
     {
       if (row == size)
       {
@@ -27,7 +20,7 @@ public class NQueensProblem {
           if(isPositioned(board,row,col,size))
           {
               board[row][col] = 'Q';
-              queen(list,board,row+1,size);
+              queen(board,row+1,size);
               board[row][col] = '.';
           }
       }
@@ -35,11 +28,11 @@ public class NQueensProblem {
 
     public static boolean isPositioned(char[][] arr,int row,int col,int size)
     {
-        for(int i = 0;i<size;i++)
+        for(int i = 0;i<row;i++)
         {
-            if(arr[row][i] == 'Q')
+            if(arr[i][col] == 'Q')
             {
-                return  false;
+                return false;
             }
         }
         for(int i = 0;i<size;i++)
@@ -78,7 +71,6 @@ public class NQueensProblem {
 
         for(int i = 0;i<arr.length;i++)
         {
-            row = "";
             for(int j = 0;j<arr[0].length;j++)
             {
                 if(arr[i][j] == 'Q')

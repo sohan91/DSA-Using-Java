@@ -15,7 +15,7 @@ public class Main
             return;
         }
 
-        int mid = start+(end-start);
+        int mid = start+(end-start)/2;
         mergeSort(arr,start,mid);//to divide left side array
         mergeSort(arr,mid,end);//to divide right side array
         sortingElements(arr,start,mid,end);
@@ -29,7 +29,7 @@ public class Main
 
         while(leftSubArrayIndex < mid && rightSubArrayIndex < end)
         {
-            if(arr[leftSubArrayIndex]<arr[rightSubArrayIndex])
+            if(arr[leftSubArrayIndex]< arr[rightSubArrayIndex])
             {
                 tempoArray[indexOfTempArray] = arr[leftSubArrayIndex];
                 leftSubArrayIndex++;
@@ -44,7 +44,7 @@ public class Main
         // array will exit quick compare to another.Hence,we perform && operation if any condition met false then the
         // whole condition will be false .So,that's we performing individually
 
-        while(leftSubArrayIndex<mid)
+        while(leftSubArrayIndex < mid)
         {
             tempoArray[indexOfTempArray] = arr[leftSubArrayIndex];
             leftSubArrayIndex++;

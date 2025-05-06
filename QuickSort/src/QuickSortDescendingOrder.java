@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class QuickSortDescendingOrder {
     public static void main(String[] args) {
-        int[] arr = {9,20,73,22,22};
+        int[] arr = {1, 4, 5, 4, 5};
         quickSort(arr,0,arr.length-1);
         System.out.println(Arrays.toString(arr));
     }
@@ -22,7 +22,8 @@ public class QuickSortDescendingOrder {
     public static int pivotNum(int[] arr,int low,int high)
     {
 
-        int pivot = arr[low];
+        int mid = low+(high-low)/2;
+        int pivot = arr[mid];
         int leftIndex = low;
         int rightIndex = high;
         while(leftIndex <= rightIndex)

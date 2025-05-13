@@ -1,3 +1,5 @@
+import java.util.ArrayDeque;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class BinarySearchTree {
@@ -6,10 +8,11 @@ public class BinarySearchTree {
         OperationOnBinarySearch bst = new OperationOnBinarySearch();
         bst.create(sc);
         bst.display();
+        bst.levelOrder();
     }
 }
 
-class Nodes {
+class Nodes extends Node {
     int data;
     Nodes left, right;
 
@@ -78,4 +81,34 @@ class OperationOnBinarySearch {
         }
         displayInTree(nodes.left, level + 1);
     }
+
+
+    public void levelOrder()
+    {
+        levelOrder(this.root);
+    }
+
+    private void levelOrder(Nodes node)
+    {
+        int height = 0;
+        Queue<Nodes> queue = new ArrayDeque<>();
+        queue.add(node);
+        while(!queue.isEmpty())
+        {
+            Nodes temp = queue.poll();
+            System.out.print(temp.data+" -> ");
+            if(temp.left != null)
+            {
+                queue.add(temp.left);
+            }
+            if(temp.right != null)
+            {
+                queue.add(temp.right);
+            }
+
+        }
+        System.out.println("END");
+        System.out.println("Height is : "+height);
+    }
+
 }

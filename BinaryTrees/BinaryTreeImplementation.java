@@ -6,13 +6,14 @@ public class BinaryTreeImplementation {
         Operation op = new Operation();
         op.insertion(sc);
         op.displayInTree();
+
     }
 }
 class Node
 {
     int data;
-    Nodes left = null;
-    Nodes right = null;
+    Node left = null;
+    Node right = null;
     Node ()
     {
 

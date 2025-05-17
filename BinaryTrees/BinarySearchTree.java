@@ -1,14 +1,18 @@
-import java.util.ArrayDeque;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 public class BinarySearchTree {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         OperationOnBinarySearch bst = new OperationOnBinarySearch();
-        bst.create(sc);
+        int[] arr = {5,3,2,9,83,100,4,20};
+        for(int i = 0;i<arr.length;i++) {
+            bst.create(arr[i]);
+        }
         bst.display();
         bst.levelOrder();
+      int h = bst.height();
+        System.out.println("Height of Tree is : "+h);
+        bst.zigZagLevelOrder();
     }
 }
 
@@ -27,21 +31,14 @@ class OperationOnBinarySearch {
     Nodes root;
 
     // Method to create a BST using user input
-    public void create(Scanner sc) {
-        System.out.print("Enter data to set as root Node: ");
-        int num = sc.nextInt();
-        root = new Nodes(num);
-
-        while (true) {
-            System.out.print("Do you want to enter more data (true/false)? ");
-            boolean input = sc.nextBoolean();
-            if (!input) {
-                break;
-            }
-
-            System.out.print("Enter the data: ");
-            int value = sc.nextInt();
-            insertRecursive(value);
+    public void create(int data)
+    {
+        if(root == null)
+        {
+            root = new Nodes(data);
+        }
+        else {
+            insertRecursive(data);
         }
     }
 
@@ -108,7 +105,89 @@ class OperationOnBinarySearch {
 
         }
         System.out.println("END");
-        System.out.println("Height is : "+height);
+    }
+    public int height()
+    {
+        //return height(root);
+        return findingHeightUsingLevelOrder(root);
+    }
+    private int height(Nodes node)
+    {
+        if(node == null)
+        {
+            return 0;
+        }
+        int l = height(node.left);
+        int r = height(node.right);
+        return Math.max(l,r)+1;
     }
 
+    public int findingHeightUsingLevelOrder(Nodes node)
+    {
+        Queue<Nodes> queue = new ArrayDeque<>();
+        queue.add(node);
+        int height = 0;
+        while(!queue.isEmpty())
+        {
+            int queueLen = queue.size();
+            height++;
+            for (int i = 0;i<queueLen;i++)
+            {
+                Nodes temp = queue.poll();
+                if(temp.left != null)
+                {
+                    queue.add(temp.left);
+                }
+                if(temp.right != null)
+                {
+                    queue.add(temp.right);
+                }
+            }
+
+        }
+        return height;
+    }
+
+    public void zigZagLevelOrder()
+    {
+        zigZagLevelOrder(root);
+    }
+    public void zigZagLevelOrder(Nodes node)
+    {
+        Stack<Nodes> s1 = new Stack<>();
+        Stack<Nodes> s2 = new Stack<>();
+        s1.push(node);
+        System.out.print("ZigZag Level Order/Spiral Level Order : ");
+        while (!s1.isEmpty() || !s2.isEmpty())
+        {
+            while (!s1.isEmpty())
+            {
+                Nodes temp = s1.pop();
+                System.out.print(temp.data+" -> ");
+                if(temp.left != null)
+                {
+                    s2.push(temp.left);
+                }
+                if(temp.right != null)
+                {
+                    s2.push(temp.right);
+                }
+            }
+            while (!s2.isEmpty())
+            {
+                Nodes temp = s2.pop();
+                System.out.print(temp.data+" -> ");
+                if(temp.right != null)
+                {
+                    s1.push(temp.right);
+                }
+                if(temp.left != null)
+                {
+                    s1.push(temp.left);
+                }
+
+            }
+        }
+        System.out.println("END");
+    }
 }

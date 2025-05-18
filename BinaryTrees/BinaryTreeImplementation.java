@@ -12,8 +12,8 @@ public class BinaryTreeImplementation {
 class Node
 {
     int data;
-    Node left = null;
-    Node right = null;
+    TreeNode left = null;
+    TreeNode right = null;
     Node ()
     {
 

@@ -8,20 +8,20 @@ public class SortedElementsToBST {
 }
 class SortedElements
 {
-    Node root;
+    TreeNode root;
     public void insert(int[] arr)
     {
         root = toBST(arr,0,arr.length-1);
     }
-    public Node toBST(int[] arr,int start,int end)
+    public TreeNode toBST(int[] arr, int start, int end)
     {
-        if(start>end)
+        if(start>=end)
         {
             return root;
         }
         int mid = start+(end-start)/2;
-        Node node = new Node(arr[mid]);
-        node.left = toBST(arr,start,mid-1);
+        TreeNode node = new TreeNode(arr[mid]);
+        node.left = toBST(arr,start,mid);
         node.right = toBST(arr,mid+1,end);
         return node;
     }
@@ -29,7 +29,7 @@ class SortedElements
     {
         display(root,0);
     }
-    private void display(Node node,int len)
+    private void display(TreeNode node, int len)
     {
         if(node == null)
             return;

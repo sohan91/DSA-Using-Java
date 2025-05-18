@@ -16,11 +16,12 @@ public class BinarySearchTree {
     }
 }
 
-class Nodes extends Node {
+class Nodes extends TreeNode {
     int data;
     Nodes left, right;
 
     public Nodes(int data) {
+        super(data);
         this.data = data;
         this.left = null;
         this.right = null;
@@ -108,17 +109,17 @@ class OperationOnBinarySearch {
     }
     public int height()
     {
-        //return height(root);
+        //return findingHeightUsingRecursion(root);
         return findingHeightUsingLevelOrder(root);
     }
-    private int height(Nodes node)
+    private int findingHeightUsingRecursion(Nodes node)
     {
         if(node == null)
         {
             return 0;
         }
-        int l = height(node.left);
-        int r = height(node.right);
+        int l = findingHeightUsingRecursion(node.left);
+        int r = findingHeightUsingRecursion(node.right);
         return Math.max(l,r)+1;
     }
 

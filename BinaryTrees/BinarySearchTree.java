@@ -151,14 +151,16 @@ class OperationOnBinarySearch {
 
     public void zigZagLevelOrder()
     {
-        zigZagLevelOrder(root);
+        zigZagLevelOrderUsingStack(root);
+        System.out.print("");
+        zigZagLevelOrderUsingQueue(root);
     }
-    public void zigZagLevelOrder(Nodes node)
+    public void zigZagLevelOrderUsingStack(Nodes node)
     {
         Stack<Nodes> s1 = new Stack<>();
         Stack<Nodes> s2 = new Stack<>();
         s1.push(node);
-        System.out.print("ZigZag Level Order/Spiral Level Order : ");
+        System.out.print("ZigZag Level Order/Spiral Level Order using Stack: ");
         while (!s1.isEmpty() || !s2.isEmpty())
         {
             while (!s1.isEmpty())
@@ -188,6 +190,48 @@ class OperationOnBinarySearch {
                 }
 
             }
+        }
+        System.out.println("END");
+    }
+    public void zigZagLevelOrderUsingQueue(Nodes node)
+    {
+        Deque<Nodes> nodesDeque = new ArrayDeque<>();
+        nodesDeque.add(node);
+        boolean toggleLeftRight = true;
+        System.out.print("ZigZag Level Order/Spiral Level Order using Queue: ");
+        while(!nodesDeque.isEmpty())
+        {
+            int size = nodesDeque.size();
+            for(int i = 0;i<size;i++)
+            {
+                if(toggleLeftRight)
+                {
+                    Nodes temp = nodesDeque.pollFirst();
+                    System.out.print(temp.data+" -> ");
+                    if(temp.left != null)
+                    {
+                        nodesDeque.addLast(temp.left);
+                    }
+                    if(temp.right != null)
+                    {
+                        nodesDeque.addLast(temp.right);
+                    }
+
+                }
+                else {
+                     Nodes temp = nodesDeque.pollLast();
+                    System.out.print(temp.data+" -> ");
+                    if(temp.right != null)
+                    {
+                        nodesDeque.addFirst(temp.right);
+                    }
+                    if(temp.left != null)
+                    {
+                        nodesDeque.addFirst(temp.left);
+                    }
+                    }
+            }
+            toggleLeftRight = !toggleLeftRight;
         }
         System.out.println("END");
     }

@@ -28,22 +28,25 @@ public class NQueensProblem {
 
     public static boolean isPositioned(char[][] arr,int row,int col,int size)
     {
-        for(int i = 0;i<row;i++)
+
+        //check horizontal row
+        for(int i = 0;i<size;i++)
         {
             if(arr[i][col] == 'Q')
             {
                 return false;
             }
         }
+        //check vertical colm
         for(int i = 0;i<size;i++)
         {
-            if(arr[i][col] == 'Q')
+            if(arr[row][i] == 'Q')
             {
                 return  false;
             }
         }
 
-        //diagonal-left
+        //diagonal-top-left
         for(int i = row,j=col;i>=0 && j>=0; i--,j--)
         {
             if(arr[i][j] == 'Q')
@@ -52,7 +55,7 @@ public class NQueensProblem {
             }
         }
 
-        //diagonal-right
+        //diagonal-top-right
         for(int i = row,j=col;i>=0 && j<size; i--,j++)
         {
             if(arr[i][j] == 'Q')

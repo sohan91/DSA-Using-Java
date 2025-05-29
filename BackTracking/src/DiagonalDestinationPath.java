@@ -1,21 +1,21 @@
 public class DiagonalDestinationPath {
     public static void main(String[] args) {
-        path(" ",1,1,3);
+        path(" ",1,1,4);
     }
-    public static void path(String name,int i, int j, int end) {
-        if (i == end && j == end) {
-            System.out.println("path(" + i + "," + j + ")" + name);
+    public static void path(String name,int row, int col, int end) {
+        if (row == end && col == end) {
+            System.out.println("path(" + row + "," + col + ")" + name);
             return;
         }
-        if(end>i && j<end)
+        if(end>row && col<end)
         {
-            path(name+"D",i+1,j+1,end);
+            path(name+"D",row+1,col,end);
         }
-        if (i<end) {
-            path(name + "H",  i + 1, j, end);
+        if (col<end) {
+            path(name + "H",  row , col+1, end);
         }
-        if (j<end) {
-            path(name + "V", i, j + 1, end);
+        if(end>row && col<end) {
+            path(name + "V", row+1, col + 1, end);
         }
     }
 }

@@ -40,7 +40,7 @@ class TreeTraversal
             if (node.left == null) {
                 node.left = new TreeNode(data);
             } else {
-                insert(node.left, data); // Correct recursive call
+                insert(node.left, data);
             }
         }
         else
@@ -48,7 +48,7 @@ class TreeTraversal
             if (node.right == null) {
                 node.right = new TreeNode(data);
             } else {
-                insert(node.right, data); // Correct recursive call
+                insert(node.right, data);
             }
         }
     }
